@@ -1,0 +1,22 @@
+public function index(){
+	  		
+$map = $this -> _search();
+
+			
+if (method_exists($this, '_search_filter')) {
+				
+$this -> _search_filter($map);
+			}
+			
+$name = $this -> getActionName();
+			
+$model = D($name);
+			
+			
+if (!empty($model)) {
+				
+$this -> _list($model, $map);
+			}
+			
+$this -> display();
+	  	}
